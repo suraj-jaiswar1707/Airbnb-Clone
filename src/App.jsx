@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom'; // ✅ Only use Routes/Route here
 import Navbar from './Navbar';
 import SearchBar from './SearchBar';
 import Login from './Login';
+import ServicesPage from './ServicesPage';
+import Footer from './Footer';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Check localStorage login
   useEffect(() => {
     const email = localStorage.getItem('loginEmail');
     const password = localStorage.getItem('loginPassword');
@@ -23,6 +25,11 @@ function App() {
         <>
           <Navbar setIsLoggedIn={setIsLoggedIn} />
           <SearchBar />
+          <Routes>
+            <Route path="/" element={<ServicesPage />} />
+            {/* Add more routes here if needed */}
+          </Routes>
+          <Footer />
         </>
       )}
     </div>
