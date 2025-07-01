@@ -4,7 +4,6 @@ import { Globe, Menu } from 'lucide-react';
 const Navbar = ({ setIsLoggedIn }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
-
   const languageRef = useRef(null);
   const menuRef = useRef(null);
 
@@ -17,10 +16,7 @@ const Navbar = ({ setIsLoggedIn }) => {
   // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        languageRef.current &&
-        !languageRef.current.contains(event.target)
-      ) {
+      if (languageRef.current && !languageRef.current.contains(event.target)) {
         setShowLanguageMenu(false);
       }
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -100,31 +96,15 @@ const Navbar = ({ setIsLoggedIn }) => {
                 Language and Region
               </div>
               <hr />
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                🌐 English (United States)
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                🌐 हिन्दी (भारत)
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                🌐 Français (France)
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                🌐 Deutsch (Deutschland)
-              </div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">🌐 English (United States)</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">🌐 हिन्दी (भारत)</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">🌐 Français (France)</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">🌐 Deutsch (Deutschland)</div>
               <hr />
-              <div className="px-4 py-2 font-semibold text-gray-700">
-                Currency
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                💰 USD - U.S. Dollar
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                💰 INR - Indian Rupee
-              </div>
-              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                💰 EUR - Euro
-              </div>
+              <div className="px-4 py-2 font-semibold text-gray-700">Currency</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">💰 USD - U.S. Dollar</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">💰 INR - Indian Rupee</div>
+              <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">💰 EUR - Euro</div>
             </div>
           )}
         </div>
