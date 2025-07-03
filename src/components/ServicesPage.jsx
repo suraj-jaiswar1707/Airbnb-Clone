@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import Footer from './Footer';
+  
+
+
 
 const ServiceCard = ({ service }) => {
   const [liked, setLiked] = useState(false);
@@ -344,11 +348,14 @@ const ServicesPage = () => {
             <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
               {category.services.map((service) => (
                 <ServiceCard key={service.id} service={service} />
+                
               ))}
+              
             </div>
           </section>
         ))}
       </main>
+      <Footer />
 
      <style>{`
         .scrollbar-hide {
