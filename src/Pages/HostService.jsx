@@ -1,7 +1,8 @@
 import React from "react";
+import ServicesPage from "../components/ServicesPage";
 
 const HostService = () => {
-  return <div className="text-center text-xl p-10">🛎️ Host a Service Page</div>;
+  return <ServicesPage />;
 };
 
 export default HostService;
