@@ -4,8 +4,11 @@ import Footer from './Footer';
 
 
 
+import { useNavigate } from 'react-router-dom';
+
 const ServiceCard = ({ service }) => {
   const [liked, setLiked] = useState(false);
+  const navigate = useNavigate();
 
   const toggleLike = (e) => {
     e.stopPropagation();
@@ -13,7 +16,7 @@ const ServiceCard = ({ service }) => {
   };
 
   const handleClick = () => {
-    window.open(`/service/${service.id}`, '_blank');
+    navigate(`/service/${service.id}`);
   };
 
   return (

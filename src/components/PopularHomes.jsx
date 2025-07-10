@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import PropertyDetails from "../Pages/PropertyDetails";
 
 const PopularHomes = () => {
+  const navigate = useNavigate();
+
   const serviceCategories = [
     {
       name: 'Popular homes in South Goa',
@@ -146,7 +148,8 @@ const PopularHomes = () => {
         }
       ]
     }
-  ]
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-inter">
       <main className="max-w-7xl mx-auto py-8 px-4">
@@ -154,17 +157,21 @@ const PopularHomes = () => {
           <section key={category.name} className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">{category.name}</h2>
             <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
-{category.services.map((service) => (
-  <Link key={service.id} to={`/property/${service.id}`}>
-    <ServiceCard service={service} />
-  </Link>
-))}
+              {category.services.map((service) => (
+                <div
+                  key={service.id}
+                  className="cursor-pointer"
+                  onClick={() => navigate(`/property/${service.id}`, { replace: true })}
+                >
+                  <ServiceCard service={service} />
+                </div>
+              ))}
             </div>
           </section>
         ))}
       </main>
 
-     <style>{`
+      <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
@@ -176,4 +183,5 @@ const PopularHomes = () => {
     </div>
   );
 };
+
 export default PopularHomes;

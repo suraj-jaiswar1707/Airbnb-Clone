@@ -3,6 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
+
 // Import all pages
 import Homes from "./Pages/HostHome";
 import Experiences from "./Pages/HostExperience";
@@ -12,6 +13,7 @@ import HostExperience from "./Pages/HostExperience";
 import HostService from "./Pages/HostService";
 import ServiceDetail from "./components/ServiceDetail";
 import PropertyDetails from "./Pages/PropertyDetails";
+
 
 const App = () => {
   return (
